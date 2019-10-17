@@ -110,7 +110,11 @@ class DataHandler:
             model.add_signal("delta_volume", volume_diff)
             model.add_signal("delta_adjclose", adjclose_diff)
             # model.add_signal("date", dates_)
-
+            dataset.append(model)
+            
+        for i in xrange(1, len(nasdaq_stock_prices)):
+            
+            model = FitnessDataObject()
             open_diff = percent_difference(nasdaq_stock_prices[i].open_, nasdaq_stock_prices[i-1].open_)
             high_diff = percent_difference(nasdaq_stock_prices[i].high_, nasdaq_stock_prices[i-1].high_)
             low_diff = percent_difference(nasdaq_stock_prices[i].low_, nasdaq_stock_prices[i-1].low_)
